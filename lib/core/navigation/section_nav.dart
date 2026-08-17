@@ -49,7 +49,6 @@ abstract final class SectionIds {
   static const services = 'services';
   static const blog = 'blog';
   static const github = 'github';
-  static const testimonials = 'testimonials';
   static const contact = 'contact';
 
   static Map<String, GlobalKey> createKeys() {
@@ -62,7 +61,6 @@ abstract final class SectionIds {
       services: GlobalKey(),
       blog: GlobalKey(),
       github: GlobalKey(),
-      testimonials: GlobalKey(),
       contact: GlobalKey(),
     };
   }

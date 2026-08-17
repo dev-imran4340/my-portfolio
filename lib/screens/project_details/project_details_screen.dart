@@ -185,7 +185,9 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                         ),
                       if (study.results.isNotEmpty)
                         _Section(title: 'Results', body: study.results),
-                      if (study.links.isNotEmpty) ...[
+                      if (study.links
+                          .where((link) => !_isDummyLink(link.url))
+                          .isNotEmpty) ...[
                         const SizedBox(height: 8),
                         Text(
                           'Links',
@@ -196,7 +198,9 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                           spacing: 10,
                           runSpacing: 10,
                           children: [
-                            for (final link in study.links)
+                            for (final link in study.links.where(
+                              (link) => !_isDummyLink(link.url),
+                            ))
                               AppButton(
                                 label: link.label,
                                 variant: AppButtonVariant.outline,
@@ -216,6 +220,13 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
       ),
     );
   }
+}
+
+bool _isDummyLink(String url) {
+  return url.contains('YOUR_') ||
+      url.contains('[') ||
+      url.trim().isEmpty ||
+      url == '#';
 }
 
 class _Section extends StatelessWidget {

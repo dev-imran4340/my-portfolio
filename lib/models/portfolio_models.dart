@@ -47,7 +47,6 @@ class BlogPost {
     required this.date,
     required this.readTime,
     required this.tags,
-    this.url = '#',
   });
 
   final String title;
@@ -55,7 +54,6 @@ class BlogPost {
   final String date;
   final String readTime;
   final List<String> tags;
-  final String url;
 }
 
 class ServiceItem {
@@ -96,20 +94,6 @@ class EducationEntry {
   final String institution;
   final String period;
   final List<String> details;
-}
-
-class Testimonial {
-  const Testimonial({
-    required this.quote,
-    required this.author,
-    required this.role,
-    this.isPlaceholder = true,
-  });
-
-  final String quote;
-  final String author;
-  final String role;
-  final bool isPlaceholder;
 }
 
 class GithubRepoPlaceholder {

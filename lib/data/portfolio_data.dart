@@ -21,7 +21,6 @@ abstract final class PortfolioData {
   static const email = 'imran.dev4340@gmail.com';
   static const phone = '+92 3125884340';
   static const linkedinUrl = 'https://www.linkedin.com/in/malik-imran-2a594525a';
-  static const githubUrl = 'YOUR_GITHUB_LINK';
 
   /// Bundled CV for Flutter asset loading (`rootBundle`).
   static const cvAssetPath = 'assets/cv.pdf';
@@ -275,27 +274,6 @@ abstract final class PortfolioData {
     ),
   ];
 
-  static const testimonials = <Testimonial>[
-    Testimonial(
-      quote:
-          '[TESTIMONIAL] Replace with a real quote from a manager, client, or teammate.',
-      author: '[NAME]',
-      role: '[ROLE]',
-    ),
-    Testimonial(
-      quote:
-          '[TESTIMONIAL] Replace with feedback on delivery, architecture, or collaboration.',
-      author: '[NAME]',
-      role: '[ROLE]',
-    ),
-    Testimonial(
-      quote:
-          '[TESTIMONIAL] Replace with a note on reliability or release quality.',
-      author: '[NAME]',
-      role: '[ROLE]',
-    ),
-  ];
-
   static const projects = <Project>[
     Project(
       slug: 'biz-hub',
@@ -311,8 +289,6 @@ abstract final class PortfolioData {
         'Android & iOS delivery',
       ],
       accent: AppColors.primary,
-      liveUrl: 'YOUR_PROJECT_LIVE_URL',
-      repoUrl: 'YOUR_PROJECT_REPO_URL',
       caseStudy: ProjectCaseStudy(
         overview:
             'Biz Hub is a cross-platform Flutter client for business management workflows.',
@@ -337,9 +313,7 @@ abstract final class PortfolioData {
           'YOUR_CHALLENGE_2',
         ],
         results: 'YOUR_RESULTS — shipping status or impact when available.',
-        links: [
-          ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
-        ],
+        links: [],
       ),
     ),
     Project(
@@ -516,8 +490,6 @@ abstract final class PortfolioData {
         'Secure API integration',
       ],
       accent: Color(0xFF5B8DEF),
-      liveUrl: 'YOUR_PROJECT_LIVE_URL',
-      repoUrl: 'YOUR_PROJECT_REPO_URL',
       caseStudy: ProjectCaseStudy(
         overview:
             'Coinszar is a Flutter crypto client for wallet balances and market-related product flows.',
@@ -542,9 +514,7 @@ abstract final class PortfolioData {
           'YOUR_CHALLENGE_2',
         ],
         results: 'YOUR_RESULTS — production crypto client features shipped.',
-        links: [
-          ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
-        ],
+        links: [],
       ),
     ),
     Project(
@@ -561,8 +531,6 @@ abstract final class PortfolioData {
         'Simple, fast Flutter UX',
       ],
       accent: AppColors.primary,
-      liveUrl: 'YOUR_PROJECT_LIVE_URL',
-      repoUrl: 'YOUR_PROJECT_REPO_URL',
       caseStudy: ProjectCaseStudy(
         overview:
             'Pocket Khata is a Flutter ledger for everyday income and expense tracking.',
@@ -586,9 +554,7 @@ abstract final class PortfolioData {
           'YOUR_CHALLENGE_2',
         ],
         results: 'YOUR_RESULTS — usable day-to-day khata experience.',
-        links: [
-          ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
-        ],
+        links: [],
       ),
     ),
     Project(

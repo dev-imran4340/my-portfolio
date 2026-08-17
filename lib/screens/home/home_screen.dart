@@ -15,7 +15,6 @@ import '../../widgets/projects/projects_section.dart';
 import '../../widgets/services/services_section.dart';
 import '../../widgets/skills/skills_section.dart';
 import '../../widgets/stats/stats_section.dart';
-import '../../widgets/testimonials/testimonials_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, this.initialSection});
@@ -117,11 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SliverToBoxAdapter(
                     child: ServicesSection(sectionKey: _keys[SectionIds.services]!),
-                  ),
-                  SliverToBoxAdapter(
-                    child: TestimonialsSection(
-                      sectionKey: _keys[SectionIds.testimonials]!,
-                    ),
                   ),
                   SliverToBoxAdapter(
                     child: ContactSection(sectionKey: _keys[SectionIds.contact]!),
