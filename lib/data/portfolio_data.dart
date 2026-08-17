@@ -94,14 +94,14 @@ abstract final class PortfolioData {
   static const stats = <StatItem>[
     StatItem(value: '4+', label: 'Years Experience'),
     StatItem(value: '10+', label: 'Projects'),
-    StatItem(value: '50+', label: 'Happy Clients'),
+    StatItem(value: '5+', label: 'Happy Clients'),
     StatItem(value: 'Android', label: 'iOS & Web'),
   ];
 
   static const aboutHighlights = <StatItem>[
     StatItem(value: '4+', label: 'Years Experience'),
-    StatItem(value: '20+', label: 'Projects'),
-    StatItem(value: '10+', label: 'Happy Clients'),
+    StatItem(value: '10+', label: 'Projects'),
+    StatItem(value: '5+', label: 'Happy Clients'),
     StatItem(value: 'Android', label: 'iOS & Web'),
   ];
 
