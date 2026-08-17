@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../core/navigation/section_nav.dart';
@@ -94,13 +93,7 @@ class _DesktopBar extends StatelessWidget {
           ),
         const SizedBox(width: 12),
         IconActionButton(
-          icon: FontAwesomeIcons.github,
-          tooltip: 'GitHub',
-          onPressed: () => openExternalUrl(context, PortfolioData.githubUrl),
-        ),
-        const SizedBox(width: 8),
-        IconActionButton(
-          icon: FontAwesomeIcons.linkedinIn,
+          icon: Icons.work_outline,
           tooltip: 'LinkedIn',
           onPressed: () => openExternalUrl(context, PortfolioData.linkedinUrl),
         ),
@@ -292,14 +285,7 @@ class MobileMenuOverlay extends StatelessWidget {
               Row(
                 children: [
                   IconActionButton(
-                    icon: FontAwesomeIcons.github,
-                    tooltip: 'GitHub',
-                    onPressed: () =>
-                        openExternalUrl(context, PortfolioData.githubUrl),
-                  ),
-                  const SizedBox(width: 10),
-                  IconActionButton(
-                    icon: FontAwesomeIcons.linkedinIn,
+                    icon: Icons.work_outline,
                     tooltip: 'LinkedIn',
                     onPressed: () =>
                         openExternalUrl(context, PortfolioData.linkedinUrl),

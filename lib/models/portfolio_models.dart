@@ -1,5 +1,4 @@
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/material.dart';
 
 class NavItem {
   const NavItem({required this.label, required this.sectionId});
@@ -175,29 +174,29 @@ class ProjectLink {
 }
 
 abstract final class SkillIcons {
-  static const flutter = FontAwesomeIcons.flutter;
-  static const dart = FontAwesomeIcons.code;
-  static const android = FontAwesomeIcons.android;
-  static const apple = FontAwesomeIcons.apple;
-  static const getx = FontAwesomeIcons.bolt;
-  static const provider = FontAwesomeIcons.cubes;
-  static const riverpod = FontAwesomeIcons.water;
-  static const firebase = FontAwesomeIcons.fire;
-  static const rest = FontAwesomeIcons.networkWired;
-  static const firestore = FontAwesomeIcons.database;
-  static const fcm = FontAwesomeIcons.bell;
-  static const storage = FontAwesomeIcons.cloud;
-  static const architecture = FontAwesomeIcons.layerGroup;
-  static const mvvm = FontAwesomeIcons.diagramProject;
-  static const repository = FontAwesomeIcons.boxOpen;
-  static const solid = FontAwesomeIcons.cubesStacked;
-  static const hive = FontAwesomeIcons.boxArchive;
-  static const sqlite = FontAwesomeIcons.table;
-  static const git = FontAwesomeIcons.gitAlt;
-  static const github = FontAwesomeIcons.github;
-  static const xcode = FontAwesomeIcons.hammer;
-  static const androidStudio = FontAwesomeIcons.android;
-  static const nextjs = FontAwesomeIcons.n;
-  static const maps = FontAwesomeIcons.mapLocationDot;
-  static const payments = FontAwesomeIcons.creditCard;
+  static const flutter = Icons.flutter_dash;
+  static const dart = Icons.code;
+  static const android = Icons.android;
+  static const apple = Icons.phone_iphone;
+  static const getx = Icons.bolt;
+  static const provider = Icons.widgets_outlined;
+  static const riverpod = Icons.water_drop_outlined;
+  static const firebase = Icons.local_fire_department;
+  static const rest = Icons.lan_outlined;
+  static const firestore = Icons.storage_outlined;
+  static const fcm = Icons.notifications_active_outlined;
+  static const storage = Icons.cloud_outlined;
+  static const architecture = Icons.account_tree_outlined;
+  static const mvvm = Icons.schema_outlined;
+  static const repository = Icons.inventory_2_outlined;
+  static const solid = Icons.view_module_outlined;
+  static const hive = Icons.archive_outlined;
+  static const sqlite = Icons.table_chart_outlined;
+  static const git = Icons.merge_type;
+  static const github = Icons.code_outlined;
+  static const xcode = Icons.build_outlined;
+  static const androidStudio = Icons.developer_mode;
+  static const nextjs = Icons.language;
+  static const maps = Icons.map_outlined;
+  static const payments = Icons.payments_outlined;
 }

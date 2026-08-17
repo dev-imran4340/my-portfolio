@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../core/animations/fade_slide_in.dart';
@@ -61,32 +60,31 @@ class _ContactIntro extends StatelessWidget {
         ),
         const SizedBox(height: 28),
         const _ContactRow(
-          icon: FontAwesomeIcons.locationDot,
+          icon: Icons.location_on_outlined,
           label: 'Location',
           value: PortfolioData.location,
         ),
         const SizedBox(height: 12),
         _ContactRow(
-          icon: FontAwesomeIcons.envelope,
+          icon: Icons.mail_outline,
           label: 'Email',
           value: PortfolioData.email,
           onTap: () => openEmail(context, PortfolioData.email),
         ),
         const SizedBox(height: 12),
         _ContactRow(
-          icon: FontAwesomeIcons.phone,
+          icon: Icons.phone_outlined,
           label: 'Phone',
           value: PortfolioData.phone,
           onTap: () => openExternalUrl(context, 'tel:${PortfolioData.phone}'),
         ),
         const SizedBox(height: 12),
         _ContactRow(
-          icon: FontAwesomeIcons.linkedinIn,
+          icon: Icons.work_outline,
           label: 'LinkedIn',
           value: PortfolioData.linkedinUrl,
           onTap: () => openExternalUrl(context, PortfolioData.linkedinUrl),
         ),
-       
       ],
     );
   }

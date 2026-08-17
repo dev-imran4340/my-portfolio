@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../app/theme/app_colors.dart';
 import '../models/portfolio_models.dart';
@@ -33,6 +32,9 @@ abstract final class PortfolioData {
 
   /// Relative link used by Download CV (resolves correctly with `--base-href`).
   static const cvUrl = './cv.pdf';
+
+  /// Hero portrait shown on the right side of the home hero.
+  static const heroImageAsset = 'assets/images/hero_portrait.png';
 
   static const positioning =
       'Senior Mobile Developer with over 4 years delivering production-grade Android, iOS and Web applications with Flutter.';
@@ -76,11 +78,10 @@ abstract final class PortfolioData {
   ];
 
   static const socials = <SocialLink>[
-  
     SocialLink(
       label: 'LinkedIn',
       url: linkedinUrl,
-      icon: FontAwesomeIcons.linkedinIn,
+      icon: Icons.work_outline,
     ),
   ];
 
@@ -163,31 +164,31 @@ abstract final class PortfolioData {
       title: 'Flutter App Development',
       description:
           'Android and iOS apps built with Flutter — from first screen to store release.',
-      icon: FontAwesomeIcons.mobileScreen,
+      icon: Icons.phone_android,
     ),
     ServiceItem(
       title: 'API Integration',
       description:
           'Secure REST integrations, auth flows, and reliable data handling between app and backend.',
-      icon: FontAwesomeIcons.plug,
+      icon: Icons.hub_outlined,
     ),
     ServiceItem(
       title: 'Firebase Development',
       description:
           'Auth, Firestore, FCM, Storage and the Firebase pieces that keep a product live.',
-      icon: FontAwesomeIcons.fire,
+      icon: Icons.local_fire_department_outlined,
     ),
     ServiceItem(
       title: 'UI Implementation',
       description:
           'Responsive, pixel-accurate Flutter interfaces that stay smooth under real usage.',
-      icon: FontAwesomeIcons.penRuler,
+      icon: Icons.design_services_outlined,
     ),
     ServiceItem(
       title: 'App Deployment',
       description:
           'Play Store, App Store and Web releases — builds, signing and release hygiene.',
-      icon: FontAwesomeIcons.rocket,
+      icon: Icons.rocket_launch_outlined,
     ),
   ];
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../core/navigation/section_nav.dart';
@@ -77,14 +76,8 @@ class SiteFooter extends StatelessWidget {
               const SizedBox(height: 24),
               Row(
                 children: [
-                  const Icon(
-                    FontAwesomeIcons.copyright,
-                    size: 11,
-                    color: AppColors.textMuted,
-                  ),
-                  const SizedBox(width: 6),
                   Text(
-                    '2026 ${PortfolioData.name}. All rights reserved.',
+                    '© 2026 ${PortfolioData.name}. All rights reserved.',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: AppColors.textMuted,
                         ),
