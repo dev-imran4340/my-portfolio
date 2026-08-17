@@ -47,6 +47,7 @@ abstract final class SectionIds {
   static const projects = 'projects';
   static const experience = 'experience';
   static const services = 'services';
+  static const blog = 'blog';
   static const github = 'github';
   static const testimonials = 'testimonials';
   static const contact = 'contact';
@@ -59,6 +60,7 @@ abstract final class SectionIds {
       projects: GlobalKey(),
       experience: GlobalKey(),
       services: GlobalKey(),
+      blog: GlobalKey(),
       github: GlobalKey(),
       testimonials: GlobalKey(),
       contact: GlobalKey(),

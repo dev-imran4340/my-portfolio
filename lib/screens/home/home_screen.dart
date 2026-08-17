@@ -5,6 +5,7 @@ import '../../core/navigation/section_nav.dart';
 import '../../core/utils/seo.dart';
 import '../../data/portfolio_data.dart';
 import '../../widgets/about/about_section.dart';
+import '../../widgets/blog/blog_section.dart';
 import '../../widgets/contact/contact_section.dart';
 import '../../widgets/experience/experience_section.dart';
 import '../../widgets/footer/site_footer.dart';
@@ -112,9 +113,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SliverToBoxAdapter(
+                    child: BlogSection(sectionKey: _keys[SectionIds.blog]!),
+                  ),
+                  SliverToBoxAdapter(
                     child: ServicesSection(sectionKey: _keys[SectionIds.services]!),
                   ),
-                
                   SliverToBoxAdapter(
                     child: TestimonialsSection(
                       sectionKey: _keys[SectionIds.testimonials]!,

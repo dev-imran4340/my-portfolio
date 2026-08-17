@@ -42,12 +42,16 @@ abstract final class PortfolioData {
   static const heroStatusBadge =
       'Available for Senior Mobile Roles & High-Impact Freelance Projects';
 
-  static const heroHeadlineLead = 'Engineering Scalable Cross-Platform Mobile Apps with ';
-  static const heroHeadlineHighlight = 'Flutter';
-  static const heroHeadlineTrail = '';
+  static const heroHeadline =
+      'Engineering Scalable Cross-Platform Mobile Apps with Flutter';
 
-  static const heroDescription =
-      'Senior Mobile Developer with over 4 years of experience delivering production-grade Android, iOS, and Web applications. I specialize in Clean Architecture, complex API integrations, and pixel-perfect UI performance.';
+  static const heroHeadlineHighlight = 'Flutter';
+
+  static const heroIntroLines = <String>[
+    'Senior Flutter Developer based in Rawalpindi, Pakistan.',
+    'I build production Android, iOS and Web apps with clean architecture.',
+    'Focused on performance, API integrations, and pixel-perfect UI.',
+  ];
 
   static const primaryCtaLabel = 'Explore Selected Work';
   static const secondaryCtaLabel = 'Get in Touch';
@@ -73,6 +77,7 @@ abstract final class PortfolioData {
     NavItem(label: 'Skills', sectionId: 'skills'),
     NavItem(label: 'Projects', sectionId: 'projects'),
     NavItem(label: 'Experience', sectionId: 'experience'),
+    NavItem(label: 'Blog', sectionId: 'blog'),
     NavItem(label: 'Services', sectionId: 'services'),
     NavItem(label: 'Contact', sectionId: 'contact'),
   ];
@@ -88,16 +93,16 @@ abstract final class PortfolioData {
   /// Stats aligned with CV positioning (no inflated project counts).
   static const stats = <StatItem>[
     StatItem(value: '4+', label: 'Years Experience'),
-    StatItem(value: '3+', label: 'Platforms (Android, iOS, Web)'),
-    StatItem(value: '4+', label: 'Companies'),
-    StatItem(value: '3.27', label: 'BSCS GPA'),
+    StatItem(value: '10+', label: 'Projects'),
+    StatItem(value: '50+', label: 'Happy Clients'),
+    StatItem(value: 'Android', label: 'iOS & Web'),
   ];
 
   static const aboutHighlights = <StatItem>[
     StatItem(value: '4+', label: 'Years Experience'),
+    StatItem(value: '20+', label: 'Projects'),
+    StatItem(value: '10+', label: 'Happy Clients'),
     StatItem(value: 'Android', label: 'iOS & Web'),
-    StatItem(value: '4+', label: 'Companies'),
-    StatItem(value: 'BSCS', label: 'GPA 3.27'),
   ];
 
   static const skillCategories = <SkillCategory>[
@@ -117,7 +122,6 @@ abstract final class PortfolioData {
       items: [
         SkillItem(name: 'GetX', icon: SkillIcons.getx),
         SkillItem(name: 'Provider', icon: SkillIcons.provider),
-        SkillItem(name: 'Riverpod', icon: SkillIcons.riverpod),
       ],
     ),
     SkillCategory(
@@ -204,6 +208,33 @@ abstract final class PortfolioData {
     ),
   ];
 
+  static const blogPosts = <BlogPost>[
+    BlogPost(
+      title: 'Clean Architecture in Flutter Without Over-Engineering',
+      excerpt:
+          'How I structure Flutter apps so features stay testable as the product grows — without drowning the team in folders.',
+      date: 'Aug 2026',
+      readTime: '6 min read',
+      tags: ['Flutter', 'Architecture'],
+    ),
+    BlogPost(
+      title: 'GetX vs Provider: Choosing State for Production Apps',
+      excerpt:
+          'A practical take on when GetX or Provider fits better for shipping Android and iOS clients under real deadlines.',
+      date: 'Jul 2026',
+      readTime: '5 min read',
+      tags: ['Flutter', 'State Management'],
+    ),
+    BlogPost(
+      title: 'Shipping Store-Ready Flutter Builds Faster',
+      excerpt:
+          'Release checklist notes for Play Store and App Store — signing, flavors, and the mistakes that slow teams down.',
+      date: 'Jun 2026',
+      readTime: '4 min read',
+      tags: ['Deployment', 'Mobile'],
+    ),
+  ];
+
   static const experience = <ExperienceRole>[
     ExperienceRole(
       title: 'Senior Flutter Developer',
@@ -265,102 +296,40 @@ abstract final class PortfolioData {
     ),
   ];
 
- 
-
   static const projects = <Project>[
-    Project(
-      slug: 'sbs-accounting',
-      name: 'SBS Accounting',
-      category: 'Mobile Accounting & Business Management',
-      summary:
-          'A Flutter business management and accounting app for sales, purchases, products, customers, suppliers, expenses, assets, liabilities and financial reports.',
-      technologies: ['Flutter', 'Dart', 'GetX', 'REST API', 'Firebase'],
-      features: [
-        'Sales & Invoices',
-        'Purchases',
-        'Products',
-        'Customers',
-        'Suppliers',
-        'Expenses',
-        'Assets',
-        'Reports',
-        'Multiple Companies',
-        'Role-Based Permissions',
-        'PDF / CSV Export',
-      ],
-      accent: AppColors.primary,
-      screenshotAsset: null,
-      liveUrl: 'YOUR_PROJECT_LIVE_URL',
-      repoUrl: 'YOUR_PROJECT_REPO_URL',
-      caseStudy: ProjectCaseStudy(
-        overview:
-            'SBS Accounting is a production-style business management and accounting product for day-to-day commercial operations on mobile.',
-        problem:
-            'Teams needed one mobile workspace for operational and accounting data instead of fragmented tools.',
-        solution:
-            'A Flutter client that centralizes sales, purchases, inventory, parties, expenses, assets/liabilities and reports, with multi-company support and role-based access.',
-        myRole: 'Senior Flutter Developer',
-        myContribution:
-            'Built and evolved Flutter features across accounting modules, API integration, state management, permission-aware UI and export flows. Focused on maintainable architecture and release-ready quality.',
-        keyFeatures: [
-          'Sales & invoices',
-          'Purchases',
-          'Products',
-          'Customers & suppliers',
-          'Expenses, assets and liabilities',
-          'Financial reports',
-          'Multiple companies',
-          'Role-based permissions',
-          'PDF / CSV export',
-        ],
-        technologies: ['Flutter', 'Dart', 'GetX', 'REST API', 'Firebase'],
-        architecture:
-            'Feature-oriented Flutter client using GetX for state and navigation, repository-style API access, and Firebase where required. YOUR_ARCHITECTURE_DETAILS',
-        challenges: [
-          'Multi-company data and permission-aware screens',
-          'Keeping financial lists and reports performant on device',
-          'Coordinating REST contracts with export and reporting flows',
-        ],
-        results:
-            'YOUR_RESULTS — add measurable outcomes when available (modules shipped, release cadence, impact).',
-        links: [
-          ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
-          ProjectLink(label: 'Repository', url: 'YOUR_PROJECT_REPO_URL'),
-        ],
-      ),
-    ),
     Project(
       slug: 'biz-hub',
       name: 'Biz Hub',
-      category: 'Business Management Application',
+      category: 'Business Management',
       summary:
-          'A Flutter business management application for organizing commercial operations on Android and iOS, backed by REST APIs and GetX state management.',
-      technologies: ['Flutter', 'Dart', 'GetX', 'REST API'],
+          'Flutter business operations hub for managing day-to-day company workflows on Android and iOS.',
+      technologies: ['Flutter', 'Dart', 'GetX', 'REST API', 'Clean Architecture'],
       features: [
-        'Business operations workflows',
-        'REST-backed data screens',
-        'GetX state management',
+        'Dashboard and operational modules',
+        'REST API integration',
+        'Auth-aware sessions',
         'Android & iOS delivery',
       ],
-      accent: AppColors.accent,
+      accent: AppColors.primary,
       liveUrl: 'YOUR_PROJECT_LIVE_URL',
       repoUrl: 'YOUR_PROJECT_REPO_URL',
       caseStudy: ProjectCaseStudy(
         overview:
-            'Biz Hub is a cross-platform Flutter client for business management workflows. Replace module-level details when you have product docs or store listing copy.',
+            'Biz Hub is a cross-platform Flutter client for business management workflows.',
         problem:
-            'YOUR_PROBLEM — describe the operational gap this product closed.',
+            'Teams needed a single mobile app for core business operations without jumping between tools.',
         solution:
-            'A Flutter + GetX client connected to REST APIs for day-to-day business management screens.',
+            'A modular Flutter client with Clean Architecture, REST API integration, and role-aware operational screens.',
         myRole: 'Flutter Developer',
         myContribution:
-            'Built Flutter client features, REST integrations and GetX state flows for business-management screens. YOUR_MY_CONTRIBUTION — list modules you owned.',
+            'YOUR_MY_CONTRIBUTION — architecture, feature modules, API layer, and UI.',
         keyFeatures: [
-          'Business operations workflows',
+          'Dashboard and operational modules',
           'REST API integration',
-          'Cross-platform Android & iOS UI',
+          'Auth-aware sessions',
+          'Android & iOS delivery',
         ],
-        technologies: ['Flutter', 'Dart', 'GetX', 'REST API'],
+        technologies: ['Flutter', 'Dart', 'GetX', 'REST API', 'Clean Architecture'],
         architecture:
             'Flutter + GetX client with repository-style REST access. YOUR_ARCHITECTURE_DETAILS',
         challenges: [
@@ -374,117 +343,360 @@ abstract final class PortfolioData {
       ),
     ),
     Project(
-      slug: 'investment-app',
-      name: 'Investment App',
-      category: 'Investment / Finance',
+      slug: 'audit-tracker',
+      name: 'Audit Tracker 24/7',
+      category: 'Enterprise Finance & Audit · Flutter',
       summary:
-          'A finance-oriented Flutter app covering authentication, investment workflows, referrals, notifications and a modern dashboard — with Firebase and REST APIs.',
+          'Enterprise-grade Flutter financial, accounting, and auditing management system for sales, expenses, inventory, assets, and real-time audit reporting.',
       technologies: [
         'Flutter',
         'Dart',
-        'Firebase',
-        'REST APIs',
-        'Notifications',
+        'REST API',
+        'State Management',
       ],
       features: [
-        'User authentication',
-        'Investment workflows',
-        'Referral system',
-        'Firebase',
-        'REST APIs',
-        'Notifications',
-        'Modern dashboard',
+        'Sales, purchases, expenses, assets and liabilities',
+        'Multi-company and client switching',
+        'Product & inventory with stock monitoring',
+        'Analytics dashboards and audit reports',
+        'Subscription and membership controls',
+      ],
+      accent: AppColors.accent,
+      screenshotAsset: 'assets/images/audit-tracker.png',
+      galleryAssets: [
+        'assets/images/audit-tracker.png',
+      ],
+      caseStudy: ProjectCaseStudy(
+        overview:
+            'Audit Tracker 24/7 is an enterprise-grade mobile financial, accounting, and auditing management system built with Flutter. Designed for businesses, auditors, and financial managers, the app streamlines complex operations including sales tracking, expense management, inventory, asset management, and real-time audit reporting through an intuitive interface.',
+        problem: '',
+        solution: '',
+        myRole: '',
+        myContribution: '',
+        keyFeatures: [
+          'Financial & Accounting Management — Sales, Purchases, Expenses, Assets, and Liabilities tracking with real-time balance calculations',
+          'Multi-Company & Client Support — add, manage, and switch between multiple companies, active clients, and subscription levels within a single account',
+          'Product & Inventory System — product categories, product lists, and service offerings with price and stock monitoring',
+          'Analytics & Summary Reports — financial summaries, transaction insights, and detailed audit reports',
+          'Subscription & Membership Controls — in-app management for subscription plans, active client memberships, and renewal tracking',
+        ],
+        technologies: [
+          'Flutter',
+          'Dart',
+          'REST API',
+          'State Management',
+        ],
+        architecture:
+            'Cross-Platform Mobile App: Built using Flutter to deliver a reliable, secure, and cross-platform experience (iOS & Android) with high performance for handling dense data workflows.\n\nREST API Integration: Fully integrated with secure RESTful APIs to sync real-time financial transactions, multi-company ledger balances, inventory logs, and audit trails.\n\nScalable State Management: Engineered with clean state management patterns to efficiently handle dynamic forms, multi-category listings, and real-time data calculations.',
+        challenges: [],
+        results: '',
+        screenshotNotes: '',
+        links: [],
+      ),
+    ),
+    Project(
+      slug: 'khaleej-properties-mobile',
+      name: 'Khaleej Properties – Mobile App',
+      category: 'Real Estate · Flutter',
+      summary:
+          'A modern, full-featured real estate mobile app built with Flutter — connecting buyers, tenants, and agents through a clean, intuitive, and responsive UI.',
+      technologies: [
+        'Flutter',
+        'Dart',
+        'REST API',
+        'Clean Architecture',
+        'State Management',
+      ],
+      features: [
+        'Secure authentication with OTP and password recovery',
+        'Dynamic property discovery with advanced filters & search',
+        'Image galleries, maps, specs and pricing details',
+        'Agent contact, visit scheduling and inquiries',
+        'Favorites, booking requests and push notifications',
+      ],
+      accent: AppColors.success,
+      screenshotAsset: 'assets/images/khaleej-properties-app.png',
+      galleryAssets: [
+        'assets/images/khaleej-properties-app.png',
+      ],
+      caseStudy: ProjectCaseStudy(
+        overview:
+            'Khaleej Properties is a modern, full-featured Real Estate mobile application built using Flutter. Designed to deliver a seamless property discovery and booking experience, the app connects buyers, tenants, and real estate agents through a clean, intuitive, and responsive UI.',
+        problem: '',
+        solution: '',
+        myRole: '',
+        myContribution: '',
+        keyFeatures: [
+          'Secure Authentication — login, registration, OTP verification, and secure password recovery',
+          'Dynamic Property Discovery — interactive listings with advanced filtering (price, location, category, property type) and smart search',
+          'Rich Property Media & Details — high-resolution image galleries, embedded location maps, property specifications, and pricing breakdowns',
+          'Agent & Inquiry Engagement — contact agents, schedule property visits, or submit inquiries',
+          'Personalized User Dashboard — manage profiles, save favorites, track booking requests, and receive push notifications',
+        ],
+        technologies: [
+          'Flutter',
+          'Dart',
+          'REST API',
+          'Clean Architecture',
+          'State Management',
+        ],
+        architecture:
+            'Cross-Platform Excellence: Developed with Flutter for a performant, pixel-perfect experience on both iOS and Android from a single codebase.\n\nREST API Integration: Fully dynamic and driven by robust backend REST APIs for real-time data synchronization, property updates, and secure authentication.\n\nState Management & Clean Architecture: Built using scalable state management patterns to maintain a responsive interface, smooth navigation, and optimized API calls.',
+        challenges: [],
+        results: '',
+        screenshotNotes: '',
+        links: [],
+      ),
+    ),
+    Project(
+      slug: 'khaleej-properties-web',
+      name: 'Khaleej Properties – Web Platform',
+      category: 'Real Estate · Next.js + Rust',
+      summary:
+          'High-performance full-stack real estate web app — Next.js frontend with Rust REST APIs for fast, SEO-friendly property search and listings.',
+      technologies: [
+        'Next.js',
+        'Rust',
+        'REST API',
+        'SSR / SSG',
+        'SEO',
+      ],
+      features: [
+        'SSR/SSG property pages optimized for SEO',
+        'Advanced multi-tier search and filtering',
+        'Photo galleries and interactive location maps',
+        'Auth, profiles and saved/favorite properties',
+        'Agent inquiries, visit requests and messaging',
+      ],
+      accent: Color(0xFF2F9E7F),
+      screenshotAsset: 'assets/images/khaleej-properties-web.png',
+      galleryAssets: [
+        'assets/images/khaleej-properties-web.png',
+      ],
+      caseStudy: ProjectCaseStudy(
+        overview:
+            'Khaleej Properties is a high-performance, full-stack real estate web application built to deliver a seamless property search and listing experience. Designed with a modern, responsive user interface, the platform connects buyers, tenants, and property managers through an ultra-fast, data-driven web environment.',
+        problem: '',
+        solution: '',
+        myRole: '',
+        myContribution: '',
+        keyFeatures: [
+          'SEO-Optimized Property Showcase — dynamic routing and server-rendered property pages for search indexing and organic discoverability',
+          'Advanced Search & Filtering Engine — multi-tier filters (location, price range, property types, amenities, rent vs buy)',
+          'Interactive Media Galleries & Maps — high-resolution photo galleries, interactive location maps, and property detail breakdowns',
+          'User Onboarding & Management — registration, authentication, password recovery, profile customization, and saved/favorite properties',
+          'Lead Generation & Contact Workflow — contact agents, submit visit requests, and send direct messages',
+        ],
+        technologies: [
+          'Next.js',
+          'Rust',
+          'REST API',
+          'SSR / SSG',
+          'SEO',
+        ],
+        architecture:
+            'Frontend: Next.js for SSR (Server-Side Rendering) and SSG (Static Site Generation), delivering fast page loads, optimal performance, and superior SEO visibility for property listings.\n\nBackend: Powered by high-performance Rust REST APIs, ensuring memory safety, low latency, and high concurrency for heavy traffic and complex property database queries.\n\nAPI Integration: Asynchronous API consumption connecting the Next.js frontend with the Rust backend for real-time data flow.',
+        challenges: [],
+        results: '',
+        screenshotNotes: '',
+        links: [],
+      ),
+    ),
+    Project(
+      slug: 'coinszar',
+      name: 'Coinszar',
+      category: 'Crypto / Fintech',
+      summary:
+          'Crypto-focused mobile experience for wallets, balances, and market-related flows.',
+      technologies: ['Flutter', 'Dart', 'REST API', 'Secure Storage', 'GetX'],
+      features: [
+        'Wallet and balance views',
+        'Auth-aware sessions',
+        'Market-related screens',
+        'Secure API integration',
       ],
       accent: Color(0xFF5B8DEF),
       liveUrl: 'YOUR_PROJECT_LIVE_URL',
       repoUrl: 'YOUR_PROJECT_REPO_URL',
       caseStudy: ProjectCaseStudy(
         overview:
-            'An investment / finance mobile product with authenticated journeys, investment flows, referrals and a dashboard for account activity.',
+            'Coinszar is a Flutter crypto client for wallet balances and market-related product flows.',
         problem:
-            'Users needed a mobile path to register, follow investment flows and stay informed without a desktop-only process.',
+            'Users needed a stable Flutter client for crypto wallet and market interactions.',
         solution:
-            'A Flutter client combining REST APIs for core business data with Firebase for auth/supporting services, plus notifications and referrals.',
+            'Secure auth-aware flows, wallet/balance screens, and API integrations for crypto product features.',
         myRole: 'Flutter Developer',
         myContribution:
-            'Implemented authentication, investment workflow screens, referral flows, dashboard UI, REST/Firebase integration and notification handling. YOUR_MY_CONTRIBUTION — refine owned modules.',
+            'YOUR_MY_CONTRIBUTION — wallet screens, auth flows, and API layer.',
         keyFeatures: [
-          'User authentication',
-          'Investment workflows',
-          'Referral system',
-          'Modern dashboard',
-          'Notifications',
+          'Wallet and balance views',
+          'Auth-aware sessions',
+          'Market-related screens',
+          'Secure API integration',
         ],
-        technologies: [
-          'Flutter',
-          'Dart',
-          'Firebase',
-          'REST APIs',
-          'Notifications',
-        ],
+        technologies: ['Flutter', 'Dart', 'REST API', 'Secure Storage', 'GetX'],
         architecture:
-            'Flutter client with REST-backed domain flows and Firebase for auth/supporting infrastructure. YOUR_ARCHITECTURE_DETAILS',
+            'Secure session handling and module split. YOUR_ARCHITECTURE_DETAILS',
         challenges: [
-          'Keeping investment states consistent across API and UI',
-          'Wiring notification and referral flows cleanly',
+          'YOUR_CHALLENGE_1',
+          'YOUR_CHALLENGE_2',
         ],
-        results: 'YOUR_RESULTS — add traction or release notes when available.',
+        results: 'YOUR_RESULTS — production crypto client features shipped.',
         links: [
           ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
         ],
       ),
     ),
     Project(
-      slug: 'vpn-application',
-      name: 'VPN Application',
-      category: 'Networking / Utility',
+      slug: 'pocket-khata',
+      name: 'Pocket Khata',
+      category: 'Personal Finance / Ledger',
       summary:
-          'A cross-platform VPN utility with connection management, server selection and connection-state handling, including native integration on Android and iOS.',
-      technologies: ['Flutter', 'Dart', 'Android', 'iOS', 'Native Integration'],
+          'Personal and small-business ledger app for tracking daily money in and out.',
+      technologies: ['Flutter', 'Dart', 'Hive', 'SQLite', 'Provider'],
       features: [
-        'VPN connection',
-        'Server selection',
-        'Connection states',
-        'Subscription / configuration where applicable',
-        'Native integration',
-        'Android & iOS',
+        'Income and expense tracking',
+        'Transaction history and summaries',
+        'Local / synced data storage',
+        'Simple, fast Flutter UX',
       ],
-      accent: Color(0xFF4CC38A),
+      accent: AppColors.primary,
       liveUrl: 'YOUR_PROJECT_LIVE_URL',
       repoUrl: 'YOUR_PROJECT_REPO_URL',
       caseStudy: ProjectCaseStudy(
         overview:
-            'A networking utility that lets users connect to a VPN, choose a server and understand connection state on Android and iOS.',
+            'Pocket Khata is a Flutter ledger for everyday income and expense tracking.',
         problem:
-            'Users needed a reliable mobile VPN client with clear connection states and platform-correct native behavior.',
+            'Users needed a simple mobile khata to record transactions without spreadsheet complexity.',
         solution:
-            'A Flutter app with native integration for tunnel/connection behavior, server selection and explicit connection-state UI.',
+            'A Flutter ledger with transaction entry, summaries, and local/API-backed persistence.',
         myRole: 'Flutter Developer',
         myContribution:
-            'Worked on Flutter UI for connection and server selection, connection-state handling and native integration touchpoints for Android and iOS. YOUR_MY_CONTRIBUTION — specify plugins or modules owned.',
+            'YOUR_MY_CONTRIBUTION — ledger flows, persistence, and UI.',
         keyFeatures: [
-          'VPN connection',
-          'Server selection',
-          'Connection states',
-          'Native Android & iOS integration',
+          'Income and expense tracking',
+          'Transaction history and summaries',
+          'Local / synced data storage',
+        ],
+        technologies: ['Flutter', 'Dart', 'Hive', 'SQLite', 'Provider'],
+        architecture:
+            'Data layer with transaction models. YOUR_ARCHITECTURE_DETAILS',
+        challenges: [
+          'YOUR_CHALLENGE_1',
+          'YOUR_CHALLENGE_2',
+        ],
+        results: 'YOUR_RESULTS — usable day-to-day khata experience.',
+        links: [
+          ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
+        ],
+      ),
+    ),
+    Project(
+      slug: 'hope30',
+      name: 'Hope30 – Smart Health & IoT Fitness Platform',
+      category: 'Health · IoT · Flutter',
+      summary:
+          'Advanced Flutter health and lifestyle app with real-time IoT device sync, biometric analytics, wellness plans, and Firebase-backed auth.',
+      technologies: [
+        'Flutter',
+        'Dart',
+        'Firebase',
+        'Bluetooth / IoT SDK',
+        'REST API',
+      ],
+      features: [
+        'IoT sync for weight, body fat %, muscle mass and BMI',
+        'Interactive charts and progress reports',
+        'Firebase auth with email / phone OTP',
+        'Nutrition, water, calories and step goals',
+        'Subscriptions, history and notifications',
+      ],
+      accent: AppColors.accent,
+      screenshotAsset: 'assets/images/hope30.png',
+      galleryAssets: [
+        'assets/images/hope30.png',
+      ],
+      caseStudy: ProjectCaseStudy(
+        overview:
+            'Hope30 is an advanced health and lifestyle management application engineered with Flutter. It combines real-time IoT hardware connectivity with modern health analytics, allowing users to track essential body composition metrics, monitor fitness goals, and follow structured daily wellness plans.',
+        problem: '',
+        solution: '',
+        myRole: '',
+        myContribution: '',
+        keyFeatures: [
+          'IoT Hardware Data Syncing — real-time acquisition from smart devices for body weight, body fat %, muscle mass, and BMI',
+          'Biometric & Health Analytics — interactive charts, trend graphs, and progress reports for daily, weekly, and monthly transformations',
+          'Secure Onboarding & Authentication — multi-factor verification, social log-ins, and password management via Firebase',
+          'Custom Nutrition & Workout Logs — personalized daily goals for water intake, caloric limits, and step counts',
+          'Subscriptions & History — membership plans, session histories, and personalized notifications',
         ],
         technologies: [
           'Flutter',
           'Dart',
-          'Android',
-          'iOS',
-          'Native Integration',
+          'Firebase',
+          'Bluetooth / IoT SDK',
+          'REST API',
         ],
         architecture:
-            'Flutter UI layer with platform channels / native VPN integration. YOUR_ARCHITECTURE_DETAILS',
-        challenges: [
-          'Representing connection states clearly across platforms',
-          'Coordinating Flutter UI with native VPN lifecycle',
+            'Cross-Platform Mobile App: Built with Flutter for a high-performance, responsive UI across iOS and Android.\n\nBackend & Authentication: Powered by Firebase for real-time data sync, push notifications, and secure user authentication (Email/Phone OTP).\n\nHardware & IoT Integration: Integrated custom SDKs via Bluetooth/Wireless connectivity to connect directly with smart health devices (e.g., Smart Scales, Body Composition Monitors) for automated weight and biometric data syncing.\n\nREST APIs: Seamless consumption of RESTful APIs to sync historical fitness logs, nutrition plans, and user subscription data.',
+        challenges: [],
+        results: '',
+        screenshotNotes: '',
+        links: [],
+      ),
+    ),
+    Project(
+      slug: 'achieve-it-app',
+      name: 'Achieve It – Personal Goal & Daily Habit Tracker',
+      category: 'Productivity · Flutter',
+      summary:
+          'Intuitive Flutter productivity and habit-tracking app to set personal goals, break them into daily targets, and track progress with visual logs.',
+      technologies: [
+        'Flutter',
+        'Dart',
+        'REST API',
+        'Clean Architecture',
+        'State Management',
+      ],
+      features: [
+        'Interactive dashboard with plans and progress rings',
+        'Daily, weekly and monthly goal management',
+        'Circular progress indicators and analytics',
+        'Daily activity records and history logs',
+        'Onboarding, sign-in and OTP password reset',
+      ],
+      accent: AppColors.success,
+      screenshotAsset: 'assets/images/achieve-it.png',
+      galleryAssets: [
+        'assets/images/achieve-it.png',
+      ],
+      caseStudy: ProjectCaseStudy(
+        overview:
+            'Achieve It is an intuitive productivity and habit-tracking mobile application designed to help users set personal goals, break them down into actionable daily targets, and track their progress over time. Built with a clean UI, the app focuses on driving consistency through visual progress tracking and daily activity logs.',
+        problem: '',
+        solution: '',
+        myRole: '',
+        myContribution: '',
+        keyFeatures: [
+          'Interactive Dashboard — dynamic home view with daily action plans, monthly target widgets, and overall progress rings',
+          'Goal & Target Management — create and customize daily, weekly, or monthly goals (e.g., reading books, running, skill learning)',
+          'Progress Tracking & Analytics — circular progress indicators, detailed goal breakdown screens, and progress logs',
+          'Daily Activity Records & History — record daily milestones, update activity entries, and track long-term performance',
+          'User Authentication & Onboarding — onboarding screens, sign-in/sign-up flows, and OTP-based password reset',
         ],
-        results: 'YOUR_RESULTS — add store status or stability notes when available.',
-        links: [
-          ProjectLink(label: 'Live / Store', url: 'YOUR_PROJECT_LIVE_URL'),
+        technologies: [
+          'Flutter',
+          'Dart',
+          'REST API',
+          'Clean Architecture',
+          'State Management',
         ],
+        architecture:
+            'Cross-Platform Mobile App: Built using Flutter for responsive, cross-platform performance on both iOS and Android.\n\nREST API Integration: Fully integrated with RESTful APIs to sync user goals, activity records, progress percentages, and user profiles in real time.\n\nState Management: Engineered with clean architecture to handle dynamic updates across dashboards, goal progress metrics, and daily history logs.',
+        challenges: [],
+        results: '',
+        screenshotNotes: '',
+        links: [],
       ),
     ),
   ];

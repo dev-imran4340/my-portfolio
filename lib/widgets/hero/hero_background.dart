@@ -38,6 +38,12 @@ class _HeroBackgroundState extends State<HeroBackground>
   }
 
   @override
+  void deactivate() {
+    _controller.stop();
+    super.deactivate();
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();

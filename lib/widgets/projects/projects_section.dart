@@ -22,9 +22,9 @@ class ProjectsSection extends StatelessWidget {
           const FadeSlideIn(
             child: SectionHeader(
               eyebrow: 'Portfolio',
-              title: 'Selected Work',
+              title: 'Recent Projects',
               subtitle:
-                  "A selection of real-world applications and products I've worked on.",
+                  'A selection of recent Flutter applications I’ve built and shipped.',
             ),
           ),
           const SizedBox(height: 36),

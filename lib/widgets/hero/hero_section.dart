@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
-import '../../core/animations/fade_slide_in.dart';
+import '../../core/animations/animated_hero_name.dart';
+import '../../core/animations/reveal.dart';
+import '../../core/animations/typewriter_text.dart';
 import '../../core/navigation/section_nav.dart';
 import '../../core/responsive/breakpoints.dart';
 import '../../data/portfolio_data.dart';
@@ -22,39 +24,19 @@ class HeroSection extends StatelessWidget {
 
     return ConstrainedBox(
       key: sectionKey,
-      constraints: BoxConstraints(minHeight: height),
+      constraints: BoxConstraints(minHeight: height * (desktop ? 1.05 : 1.0)),
       child: Stack(
         children: [
           const Positioned.fill(child: HeroBackground()),
           AppContainer(
             child: Padding(
               padding: EdgeInsets.only(
-                top: context.responsive(mobile: 120, tablet: 132, desktop: 140),
-                bottom: context.responsive(mobile: 56, tablet: 72, desktop: 80),
+                top: context.responsive(mobile: 120, tablet: 132, desktop: 148),
+                bottom: context.responsive(mobile: 64, tablet: 80, desktop: 96),
               ),
-              child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: height - 180),
-                child: desktop
-                    ? const Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(flex: 6, child: _HeroCopy()),
-                          SizedBox(width: 56),
-                          Expanded(flex: 5, child: HeroVisual()),
-                        ],
-                      )
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const _HeroCopy(),
-                          const SizedBox(height: 40),
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 460),
-                            child: const HeroVisual(),
-                          ),
-                        ],
-                      ),
-              ),
+              child: desktop
+                  ? const _DesktopHero()
+                  : const _MobileHero(),
             ),
           ),
         ],
@@ -63,101 +45,171 @@ class HeroSection extends StatelessWidget {
   }
 }
 
-class _HeroCopy extends StatelessWidget {
-  const _HeroCopy();
+class _DesktopHero extends StatelessWidget {
+  const _DesktopHero();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Expanded(flex: 7, child: _HeroCopySequence()),
+        const SizedBox(width: 64),
+        Expanded(
+          flex: 5,
+          child: Reveal(
+            delay: const Duration(milliseconds: 1600),
+            direction: RevealDirection.right,
+            scaleFrom: 0.94,
+            child: const HeroVisual(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _MobileHero extends StatelessWidget {
+  const _MobileHero();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const _HeroCopySequence(),
+        const SizedBox(height: 40),
+        Reveal(
+          delay: const Duration(milliseconds: 1500),
+          direction: RevealDirection.up,
+          scaleFrom: 0.96,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 420),
+            child: const HeroVisual(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _HeroCopySequence extends StatelessWidget {
+  const _HeroCopySequence();
 
   @override
   Widget build(BuildContext context) {
     final expandButtons = context.isMobile;
+    final nameSize = context.responsive(mobile: 36.0, tablet: 48.0, desktop: 58.0);
+    final headlineSize =
+        context.responsive(mobile: 22.0, tablet: 28.0, desktop: 32.0);
 
-    return FadeSlideIn(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: context.responsive(
-                mobile: double.infinity,
-                tablet: 520,
-                desktop: 560,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Reveal(
+          delay: const Duration(milliseconds: 120),
+          direction: RevealDirection.down,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: AppColors.primarySoft,
+              borderRadius: BorderRadius.circular(999),
+              border: Border.all(
+                color: AppColors.primary.withValues(alpha: 0.28),
               ),
             ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(
-                color: AppColors.primarySoft,
-                borderRadius: BorderRadius.circular(999),
-                border: Border.all(
-                  color: AppColors.primary.withValues(alpha: 0.28),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 7,
+                  height: 7,
+                  decoration: const BoxDecoration(
+                    color: AppColors.success,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Flexible(
+                  child: Text(
+                    PortfolioData.heroStatusBadge,
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          fontSize: 11.5,
+                          color: AppColors.textPrimary,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: context.responsive(mobile: 28, desktop: 36)),
+        Reveal(
+          delay: const Duration(milliseconds: 280),
+          direction: RevealDirection.up,
+          child: AnimatedHeroName(
+            name: PortfolioData.name,
+            fontSize: nameSize,
+          ),
+        ),
+        SizedBox(height: context.responsive(mobile: 10, desktop: 14)),
+        Reveal(
+          delay: const Duration(milliseconds: 420),
+          direction: RevealDirection.left,
+          child: Text(
+            PortfolioData.title.toUpperCase(),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  letterSpacing: 3.2,
+                  fontSize: 12,
+                  color: AppColors.accent,
+                ),
+          ),
+        ),
+        SizedBox(height: context.responsive(mobile: 28, desktop: 36)),
+        Reveal(
+          delay: const Duration(milliseconds: 560),
+          direction: RevealDirection.up,
+          child: TypewriterText(
+            text: PortfolioData.heroHeadline,
+            highlight: PortfolioData.heroHeadlineHighlight,
+            startDelay: const Duration(milliseconds: 200),
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  fontSize: headlineSize,
+                  height: 1.25,
+                  fontWeight: FontWeight.w600,
+                ),
+            highlightStyle: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  fontSize: headlineSize,
+                  height: 1.25,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.primary,
+                ),
+          ),
+        ),
+        SizedBox(height: context.responsive(mobile: 28, desktop: 32)),
+        for (var i = 0; i < PortfolioData.heroIntroLines.length; i++)
+          Reveal(
+            delay: Duration(milliseconds: 1100 + (i * 220)),
+            direction: i.isEven ? RevealDirection.left : RevealDirection.right,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 560),
+                child: Text(
+                  PortfolioData.heroIntroLines[i],
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: context.responsive(mobile: 15, desktop: 17),
+                        height: 1.65,
+                      ),
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Container(
-                      width: 7,
-                      height: 7,
-                      decoration: const BoxDecoration(
-                        color: AppColors.success,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Flexible(
-                    child: Text(
-                      PortfolioData.heroStatusBadge,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontSize: 11.5,
-                            height: 1.35,
-                            color: AppColors.textPrimary,
-                          ),
-                    ),
-                  ),
-                ],
-              ),
             ),
           ),
-          const SizedBox(height: 22),
-          Semantics(
-            header: true,
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(text: PortfolioData.heroHeadlineLead),
-                  TextSpan(
-                    text: PortfolioData.heroHeadlineHighlight,
-                    style: const TextStyle(color: AppColors.primary),
-                  ),
-                  if (PortfolioData.heroHeadlineTrail.isNotEmpty)
-                    TextSpan(text: PortfolioData.heroHeadlineTrail),
-                ],
-              ),
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    fontSize: context.responsive(
-                      mobile: 30,
-                      tablet: 40,
-                      desktop: 48,
-                    ),
-                    height: 1.15,
-                  ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 580),
-            child: Text(
-              PortfolioData.heroDescription,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontSize: context.responsive(mobile: 15, desktop: 17),
-                  ),
-            ),
-          ),
-          const SizedBox(height: 28),
-          Wrap(
+        SizedBox(height: context.responsive(mobile: 24, desktop: 28)),
+        Reveal(
+          delay: const Duration(milliseconds: 1900),
+          direction: RevealDirection.up,
+          child: Wrap(
             spacing: 12,
             runSpacing: 12,
             children: [
@@ -182,8 +234,8 @@ class _HeroCopy extends StatelessWidget {
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

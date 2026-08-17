@@ -31,7 +31,9 @@ class _ProjectCardState extends State<ProjectCard> {
     final image = ClipRRect(
       borderRadius: BorderRadius.circular(18),
       child: AspectRatio(
-        aspectRatio: stacked ? 1.35 : 1.15,
+        aspectRatio: widget.project.screenshotAsset != null
+            ? (stacked ? 1.7 : 1.85)
+            : (stacked ? 1.35 : 1.15),
         child: ProjectVisual(project: widget.project, zoom: _hover),
       ),
     );

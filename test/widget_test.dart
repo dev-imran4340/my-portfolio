@@ -12,11 +12,11 @@ void main() {
   testWidgets('Portfolio renders identity and primary CTA', (tester) async {
     await tester.pumpWidget(const PortfolioApp());
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 16));
 
     expect(find.text('Explore Selected Work'), findsOneWidget);
-    expect(find.textContaining('Engineering Scalable'), findsOneWidget);
+    expect(find.textContaining('Malik Muhammad Imran'), findsWidgets);
 
     await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 5));
   });
 }

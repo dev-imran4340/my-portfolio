@@ -17,15 +17,18 @@ class ProjectVisual extends StatelessWidget {
   Widget build(BuildContext context) {
     final child = project.screenshotAsset == null
         ? _StylizedPreview(project: project)
-        : Image.asset(
-            project.screenshotAsset!,
-            fit: BoxFit.cover,
-            alignment: Alignment.topCenter,
-            semanticLabel: '${project.name} screenshot. [PROJECT_SCREENSHOT]',
+        : ColoredBox(
+            color: AppColors.secondaryBackground,
+            child: Image.asset(
+              project.screenshotAsset!,
+              fit: BoxFit.contain,
+              alignment: Alignment.center,
+              semanticLabel: '${project.name} project showcase',
+            ),
           );
 
     return AnimatedScale(
-      scale: zoom ? 1.04 : 1,
+      scale: zoom ? 1.03 : 1,
       duration: const Duration(milliseconds: 280),
       curve: Curves.easeOut,
       child: child,

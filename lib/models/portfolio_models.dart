@@ -40,6 +40,24 @@ class SkillCategory {
   final List<SkillItem> items;
 }
 
+class BlogPost {
+  const BlogPost({
+    required this.title,
+    required this.excerpt,
+    required this.date,
+    required this.readTime,
+    required this.tags,
+    this.url = '#',
+  });
+
+  final String title;
+  final String excerpt;
+  final String date;
+  final String readTime;
+  final List<String> tags;
+  final String url;
+}
+
 class ServiceItem {
   const ServiceItem({
     required this.title,
@@ -119,6 +137,7 @@ class Project {
     required this.accent,
     required this.caseStudy,
     this.screenshotAsset,
+    this.galleryAssets = const [],
     this.liveUrl,
     this.repoUrl,
   });
@@ -132,6 +151,9 @@ class Project {
   final Color accent;
   final ProjectCaseStudy caseStudy;
   final String? screenshotAsset;
+
+  /// Extra showcase images shown on the case study page.
+  final List<String> galleryAssets;
   final String? liveUrl;
   final String? repoUrl;
 }
@@ -180,7 +202,6 @@ abstract final class SkillIcons {
   static const apple = Icons.phone_iphone;
   static const getx = Icons.bolt;
   static const provider = Icons.widgets_outlined;
-  static const riverpod = Icons.water_drop_outlined;
   static const firebase = Icons.local_fire_department;
   static const rest = Icons.lan_outlined;
   static const firestore = Icons.storage_outlined;

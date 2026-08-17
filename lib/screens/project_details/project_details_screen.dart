@@ -114,43 +114,98 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(24),
                         child: AspectRatio(
-                          aspectRatio: context.isMobile ? 1.1 : 16 / 8,
+                          aspectRatio: context.isMobile ? 1.4 : 16 / 9,
                           child: ProjectVisual(project: project),
                         ),
                       ),
-                      const SizedBox(height: 36),
-                      _Section(title: 'Overview', body: study.overview),
-                      _Section(title: 'Problem', body: study.problem),
-                      _Section(title: 'Solution', body: study.solution),
-                      _Section(title: 'My Role', body: study.myRole),
-                      _Highlight(
-                        title: 'My Contribution',
-                        body: study.myContribution,
-                      ),
-                      _ListSection(title: 'Key Features', items: study.keyFeatures),
-                      _Chips(title: 'Technologies', items: study.technologies),
-                      _Section(title: 'Architecture', body: study.architecture),
-                      _ListSection(title: 'Challenges', items: study.challenges),
-                      _Section(
-                        title: 'Screenshots',
-                        body: study.screenshotNotes,
-                      ),
-                      _Section(title: 'Results', body: study.results),
-                      const SizedBox(height: 8),
-                      Text('Links', style: Theme.of(context).textTheme.titleLarge),
-                      const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 10,
-                        runSpacing: 10,
-                        children: [
-                          for (final link in study.links)
-                            AppButton(
-                              label: link.label,
-                              variant: AppButtonVariant.outline,
-                              onPressed: () => openExternalUrl(context, link.url),
+                      if (project.galleryAssets.length > 1) ...[
+                        const SizedBox(height: 16),
+                        Text(
+                          'Gallery',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 12),
+                        for (final asset in project.galleryAssets.skip(1)) ...[
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: ColoredBox(
+                              color: AppColors.secondaryBackground,
+                              child: AspectRatio(
+                                aspectRatio: context.isMobile ? 1.4 : 16 / 9,
+                                child: Image.asset(
+                                  asset,
+                                  fit: BoxFit.contain,
+                                  semanticLabel: '${project.name} showcase',
+                                ),
+                              ),
                             ),
+                          ),
+                          const SizedBox(height: 14),
                         ],
-                      ),
+                      ],
+                      const SizedBox(height: 20),
+                      if (study.overview.isNotEmpty)
+                        _Section(title: 'Overview', body: study.overview),
+                      if (study.problem.isNotEmpty)
+                        _Section(title: 'Problem', body: study.problem),
+                      if (study.solution.isNotEmpty)
+                        _Section(title: 'Solution', body: study.solution),
+                      if (study.myRole.isNotEmpty)
+                        _Section(title: 'My Role', body: study.myRole),
+                      if (study.myContribution.isNotEmpty)
+                        _Highlight(
+                          title: 'My Contribution',
+                          body: study.myContribution,
+                        ),
+                      if (study.keyFeatures.isNotEmpty)
+                        _ListSection(
+                          title: 'Key Features',
+                          items: study.keyFeatures,
+                        ),
+                      if (study.technologies.isNotEmpty)
+                        _Chips(
+                          title: 'Technologies',
+                          items: study.technologies,
+                        ),
+                      if (study.architecture.isNotEmpty)
+                        _Section(
+                          title: 'Architecture',
+                          body: study.architecture,
+                        ),
+                      if (study.challenges.isNotEmpty)
+                        _ListSection(
+                          title: 'Challenges',
+                          items: study.challenges,
+                        ),
+                      if (study.screenshotNotes.isNotEmpty &&
+                          study.screenshotNotes != '[PROJECT_SCREENSHOT]')
+                        _Section(
+                          title: 'Screenshots',
+                          body: study.screenshotNotes,
+                        ),
+                      if (study.results.isNotEmpty)
+                        _Section(title: 'Results', body: study.results),
+                      if (study.links.isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          'Links',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 12),
+                        Wrap(
+                          spacing: 10,
+                          runSpacing: 10,
+                          children: [
+                            for (final link in study.links)
+                              AppButton(
+                                label: link.label,
+                                variant: AppButtonVariant.outline,
+                                onPressed: () =>
+                                    openExternalUrl(context, link.url),
+                              ),
+                          ],
+                        ),
+                      ],
                     ],
                   ),
                 ),

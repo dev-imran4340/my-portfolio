@@ -12,7 +12,7 @@ class HeroVisual extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 0.86,
+      aspectRatio: 1,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -54,7 +54,8 @@ class HeroVisual extends StatelessWidget {
                     Image.asset(
                       PortfolioData.heroImageAsset,
                       fit: BoxFit.cover,
-                      alignment: const Alignment(0, -0.15),
+                      alignment: Alignment.center,
+                      filterQuality: FilterQuality.high,
                       semanticLabel: '${PortfolioData.name} portrait',
                     ),
                     DecoratedBox(
@@ -64,10 +65,10 @@ class HeroVisual extends StatelessWidget {
                           end: Alignment.bottomCenter,
                           colors: [
                             Colors.transparent,
-                            AppColors.background.withValues(alpha: 0.15),
-                            AppColors.background.withValues(alpha: 0.82),
+                            AppColors.background.withValues(alpha: 0.08),
+                            AppColors.background.withValues(alpha: 0.72),
                           ],
-                          stops: const [0.45, 0.72, 1],
+                          stops: const [0.55, 0.78, 1],
                         ),
                       ),
                     ),
@@ -106,12 +107,12 @@ class HeroVisual extends StatelessWidget {
             child: _FloatBadge(label: 'Flutter', delay: 0),
           ),
           const Positioned(
-            top: 110,
+            top: 96,
             left: -12,
             child: _FloatBadge(label: 'Dart', delay: 400),
           ),
           const Positioned(
-            bottom: 110,
+            bottom: 96,
             right: -10,
             child: _FloatBadge(label: 'Firebase', delay: 800),
           ),
@@ -148,6 +149,12 @@ class _FloatBadgeState extends State<_FloatBadge>
       if (Motion.reduced(context) || !TickerMode.of(context)) return;
       _controller.repeat(reverse: true);
     });
+  }
+
+  @override
+  void deactivate() {
+    _controller.stop();
+    super.deactivate();
   }
 
   @override
