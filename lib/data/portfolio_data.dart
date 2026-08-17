@@ -34,7 +34,7 @@ abstract final class PortfolioData {
   static const cvUrl = './cv.pdf';
 
   /// Hero portrait shown on the right side of the home hero.
-  static const heroImageAsset = 'assets/images/hero_portrait.png';
+  static const heroImageAsset = 'assets/images/myimg.jpeg';
 
   static const positioning =
       'Senior Mobile Developer with over 4 years delivering production-grade Android, iOS and Web applications with Flutter.';

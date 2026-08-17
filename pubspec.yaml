@@ -27,4 +27,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/cv.pdf
-    - assets/images/hero_portrait.png
+    - assets/images/myimg.jpeg
