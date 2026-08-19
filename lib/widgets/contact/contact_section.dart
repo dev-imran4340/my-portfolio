@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../core/animations/fade_slide_in.dart';
-import '../../core/responsive/breakpoints.dart';
 import '../../core/utils/url_utils.dart';
 import '../../data/portfolio_data.dart';
 import '../common/app_container.dart';
 import '../common/section_header.dart';
-import 'contact_form.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key, required this.sectionKey});
@@ -16,30 +14,17 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stacked = context.isCompact;
-
     return SectionScaffold(
       sectionKey: sectionKey,
       background: AppColors.secondaryBackground,
       semanticLabel: 'Contact',
-      child: FadeSlideIn(
-        child: stacked
-            ? const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _ContactIntro(),
-                  SizedBox(height: 28),
-                  ContactForm(),
-                ],
-              )
-            : const Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(child: _ContactIntro()),
-                  SizedBox(width: 48),
-                  Expanded(child: ContactForm()),
-                ],
-              ),
+      child: const FadeSlideIn(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _ContactIntro(),
+          ],
+        ),
       ),
     );
   }
@@ -82,7 +67,7 @@ class _ContactIntro extends StatelessWidget {
         _ContactRow(
           icon: Icons.work_outline,
           label: 'LinkedIn',
-          value: PortfolioData.linkedinUrl,
+          value: 'linkedin.com/in/malik-imran-2a594525a',
           onTap: () => openExternalUrl(context, PortfolioData.linkedinUrl),
         ),
       ],
