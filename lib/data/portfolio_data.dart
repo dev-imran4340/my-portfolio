@@ -6,16 +6,16 @@ import '../models/portfolio_models.dart';
 /// Central content for the Flutter Web portfolio.
 /// Replace placeholders marked YOUR_* / [ ... ] with real links and contact info.
 abstract final class PortfolioData {
-  static const name = 'Malik Muhammad Imran';
+  static const name = 'Malik Imran';
   static const shortName = 'IM';
   static const title = 'Senior Flutter Developer';
   static const location = 'Rawalpindi, Pakistan';
   static const company = 'Softect Business Services';
 
-  static const fullName = 'Malik Muhammad Imran';
-  static const seoTitle = 'Malik Muhammad Imran | Senior Flutter Developer';
+  static const fullName = 'Malik Imran';
+  static const seoTitle = 'Malik Imran | Senior Flutter Developer';
   static const seoDescription =
-      'Malik Muhammad Imran — Senior Flutter Developer in Rawalpindi, Pakistan. Production Android, iOS and Web apps with Clean Architecture, API integrations and high-performance UI.';
+      'Malik Imran — Senior Flutter Developer in Rawalpindi, Pakistan. Production Android, iOS and Web apps with Clean Architecture, API integrations and high-performance UI.';
 
   // Contact
   static const email = 'imran.dev4340@gmail.com';
@@ -27,7 +27,7 @@ abstract final class PortfolioData {
 
   /// Public URL path on GitHub Pages / Flutter Web (copied to `build/web/cv.pdf`).
   static const cvPublicPath = 'cv.pdf';
-  static const cvDownloadFileName = 'Malik_Muhammad_Imran_CV.pdf';
+  static const cvDownloadFileName = 'Malik_Imran_CV.pdf';
 
   /// Relative link used by Download CV (resolves correctly with `--base-href`).
   static const cvUrl = './cv.pdf';
@@ -58,7 +58,7 @@ abstract final class PortfolioData {
   static const aboutHeading = 'Crafting High-Performance Mobile Experiences';
 
   static const aboutParagraphs = <String>[
-    'I am Malik Muhammad Imran, a Senior Flutter Developer based in Rawalpindi, Pakistan. Over the past 4+ years, I’ve helped startups and businesses turn complex requirements into robust, published mobile applications.',
+    'I am Malik Imran, a Senior Flutter Developer based in Rawalpindi, Pakistan. Over the past 4+ years, I’ve helped startups and businesses turn complex requirements into robust, published mobile applications.',
     'My engineering philosophy centers around Clean Architecture, maintainable codebase structures, and performance optimization. Whether it\'s integrating real-time features, custom state management with Provider/GetX, or configuring CI/CD deployment pipelines, I focus on building software that scales seamlessly.',
     'I hold a Bachelor’s degree in Computer Science from NUML (GPA 3.27/4.0), where my capstone project involved developing a Generative AI Assistant for Healthcare.',
   ];

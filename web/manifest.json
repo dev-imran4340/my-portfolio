@@ -1,11 +1,11 @@
 {
-    "name": "Imran Malik | Senior Flutter Developer",
-    "short_name": "Imran Malik",
+    "name": "Malik Imran | Senior Flutter Developer",
+    "short_name": "Malik Imran",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#080B12",
     "theme_color": "#080B12",
-    "description": "Portfolio of Imran Malik, Senior Flutter Developer specializing in Flutter, Dart, Firebase, REST APIs and scalable mobile applications.",
+    "description": "Portfolio of Malik Imran, Senior Flutter Developer specializing in Flutter, Dart, Firebase, REST APIs and scalable mobile applications.",
     "orientation": "any",
     "prefer_related_applications": false,
     "icons": [

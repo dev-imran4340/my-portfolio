@@ -14,7 +14,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Explore Selected Work'), findsOneWidget);
-    expect(find.textContaining('Malik Muhammad Imran'), findsWidgets);
+    expect(find.textContaining('Malik Imran'), findsWidgets);
 
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 5));

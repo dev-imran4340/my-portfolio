@@ -31,12 +31,14 @@ jobs:
       - name: Build web (release)
         run: |
           REPO_NAME="${{ github.event.repository.name }}"
-          flutter build web --release --base-href "/${REPO_NAME}/" --no-wasm-dry-run
+          flutter build web --release --base-href "/${REPO_NAME}/" --no-wasm-dry-run --no-web-resources-cdn
 
-      - name: Copy CV to site root
+      - name: Prepare site files
         run: |
           cp assets/cv.pdf build/web/cv.pdf
-          ls -la build/web/cv.pdf
+          cp build/web/index.html build/web/404.html
+          touch build/web/.nojekyll
+          ls -la build/web/cv.pdf build/web/404.html build/web/.nojekyll
 
       # Publishes build/web → gh-pages branch.
       # You must still enable Pages once in GitHub Settings
@@ -47,3 +49,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
           force_orphan: true
+          enable_jekyll: false

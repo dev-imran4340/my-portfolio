@@ -5,6 +5,7 @@ import '../../screens/home/home_screen.dart';
 import '../../screens/project_details/project_details_screen.dart';
 
 final appRouter = GoRouter(
+  errorBuilder: (context, state) => const HomeScreen(),
   routes: [
     GoRoute(
       path: '/',

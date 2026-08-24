@@ -1,4 +1,4 @@
-# Imran Malik — Flutter Web Portfolio
+# Malik Imran — Flutter Web Portfolio
 
 Premium personal portfolio with a downloadable CV, deployable to **GitHub Pages**.
 
