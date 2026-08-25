@@ -334,6 +334,56 @@ abstract final class PortfolioData {
       ),
     ),
     Project(
+      slug: 'donation-hub',
+      name: 'DonationHub – Global Giving Platform',
+      category: 'Non-Profit · Flutter',
+      summary:
+          'Flutter donation app that connects local donors with charity campaigns — real-time fundraising, secure digital giving, and transparent impact tracking on Firebase.',
+      technologies: [
+        'Flutter',
+        'Dart',
+        'Firebase',
+      ],
+      features: [
+        'Interactive campaign dashboard with live progress and featured causes',
+        'Multi-method checkout for instant and custom donations',
+        'Impact profile with totals, supported causes and badges',
+        'Live news, stories and campaign updates',
+        'Secure authentication and profile management',
+      ],
+      accent: Color(0xFFB23A48),
+      screenshotAsset: 'assets/images/donation-hub.png',
+      galleryAssets: [
+        'assets/images/donation-hub.png',
+      ],
+      caseStudy: ProjectCaseStudy(
+        overview:
+            'DonationHub is a modern mobile application designed to connect local donors with charity campaigns and community relief efforts. Built with a sleek UI and a Firebase-backed architecture, the app streamlines non-profit fundraising, transparent donor tracking, and secure digital giving.',
+        problem: '',
+        solution: '',
+        myRole: '',
+        myContribution: '',
+        keyFeatures: [
+          'Interactive Campaign Dashboard — real-time progress bars, featured causes, and target goal tracking',
+          'Seamless Payment Integration — multi-method checkout for instant micro-donations and custom contributions',
+          'Impact Tracking & Profile — personal dashboard highlighting total contributions, supported causes, and achievement badges',
+          'Direct News & Updates — live story feeds and campaign updates connecting donors to beneficiaries',
+          'Secure Authentication — frictionless sign-in and user profile management',
+        ],
+        technologies: [
+          'Flutter',
+          'Dart',
+          'Firebase',
+        ],
+        architecture:
+            'Cross-platform Flutter app for Android and iOS with a Firebase backend for authentication, real-time campaign data, donor profiles, and media. Payment checkout is wired through the donation flow so contributions and impact stats stay in sync with the user dashboard.',
+        challenges: [],
+        results: '',
+        screenshotNotes: '',
+        links: [],
+      ),
+    ),
+    Project(
       slug: 'audit-tracker',
       name: 'Audit Tracker 24/7',
       category: 'Enterprise Finance & Audit · Flutter',
